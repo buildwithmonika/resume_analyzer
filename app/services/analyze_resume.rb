@@ -5,7 +5,8 @@ class AnalyzeResume
 
   def analyze
     client = OpenAI::Client.new(access_token: ENV['OPENAI_ACCESS_TOKEN'], log_errors: true)
-    prompt = <<ENV['OPENAI_ACCESS_TOKEN']      You are an ATS (Applicant Tracking System) expert. Analyze the following resume text and return a JSON object with:
+    prompt = <<~PROMPT
+      You are an ATS (Applicant Tracking System) expert. Analyze the following resume text and return a JSON object with:
       - ats_score: integer 0-100
       - strengths: array of strings
       - weaknesses: array of strings
