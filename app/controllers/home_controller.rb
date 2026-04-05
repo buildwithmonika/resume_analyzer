@@ -4,12 +4,12 @@ class HomeController < ApplicationController
     end
 
     def analyze_resume
-        # puts (params.inspect)
         resume = params[:resume]
-        puts "resume - #{resume.inspect}"
         if resume.present?
             text = extract_text(resume)
             puts "text - #{text.inspect}"
+            response = AnalyzeResume.new(text).analyze
+            puts "response - #{response.inspect}"
         else
             puts "No file uploaded"
         end
