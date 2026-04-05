@@ -10,6 +10,8 @@ class HomeController < ApplicationController
         if resume.present?
             text = extract_text(resume)
             puts "text - #{text.inspect}"
+        else
+            puts "No file uploaded"
         end
     end
 
@@ -21,6 +23,9 @@ class HomeController < ApplicationController
             reader = PDF::Reader.new(resume.tempfile)
             puts(reader.pages.inspect)
             reader.pages.map(&:text).join("\n")
+        elsif content_type = 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+            doc = Docx::Document.open(resume.tempfile)
+            doc.paragraphs.map(&:text).join("\n")
         else
             ''
         end
