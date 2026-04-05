@@ -4,6 +4,25 @@ class HomeController < ApplicationController
     end
 
     def analyze_resume
-        puts (params.inspect)
+        # puts (params.inspect)
+        resume = params[:resume]
+        puts "resume - #{resume.inspect}"
+        if resume.present?
+            text = extract_text(resume)
+            puts "text - #{text.inspect}"
+        end
+    end
+
+    private
+
+    def extract_text(resume)
+        content_type = resume.content_type
+        if content_type == 'application/pdf'
+            reader = PDF::Reader.new(resume.tempfile)
+            puts(reader.pages.inspect)
+            reader.pages.map(&:text).join("\n")
+        else
+            ''
+        end
     end
 end
