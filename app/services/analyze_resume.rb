@@ -8,10 +8,9 @@ class AnalyzeResume
     prompt = <<~PROMPT
       You are an ATS (Applicant Tracking System) expert. Analyze the following resume text and return a JSON object with:
       - ats_score: integer 0-100
-      - strengths: array of strings
-      - weaknesses: array of strings
-      - missing_keywords: array of strings (common keywords missing for a software engineer)
-      - suggestions: array of strings (actionable improvements)
+      - strengths: array of strings (length 5)
+      - weaknesses: array of strings (length 5)
+      - improvements: array of strings (actionable improvements) (length 5)
 
       Resume text:
       #{@text}
