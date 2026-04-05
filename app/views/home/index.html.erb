@@ -13,23 +13,22 @@
 
     <!-- Upload Card -->
     <div class="bg-white rounded-2xl shadow-md p-6 mb-8">
-      <div class="flex flex-col md:flex-row items-center gap-4">
-        
-        <!-- File Input -->
-        <div class="flex-1 w-full">
-          <label class="flex items-center border rounded-lg px-4 py-3 cursor-pointer hover:border-blue-400">
-            <input type="file" class="hidden" />
-            <span class="text-gray-500">Upload Resume</span>
-          </label>
-        </div>
+      <%= form_tag analyze_resume_path, multipart: true, data: { turbo: true } do %>
+        <div class="flex flex-col md:flex-row items-center gap-4">
+          <!-- File Input (styled as a button via label) -->
+          <div class="flex-1 w-full">
+            <label class="flex items-center border rounded-lg px-4 py-3 cursor-pointer hover:border-blue-400">
+              <%= file_field_tag :resume, accept: ".pdf,.docx", required: true, class: "hidden" %>
+              <span class="text-gray-500">Upload Resume</span>
+            </label>
+          </div>
 
-        <!-- Button -->
-        <div>
-          <button class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700">
-            Analyze Resume
-          </button>
+          <!-- Submit Button -->
+          <div>
+            <%= submit_tag "Analyze Resume", class: "bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700" %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
 
     <!-- Results Card -->
