@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    Ascii85 (1.0.3)
+    Ascii85 (2.0.1)
     actioncable (8.0.5)
       actionpack (= 8.0.5)
       activesupport (= 8.0.5)
@@ -75,7 +75,7 @@ GEM
       uri (>= 0.13.1)
     addressable (2.8.9)
       public_suffix (>= 2.0.2, < 8.0)
-    afm (0.2.2)
+    afm (1.0.0)
     ast (2.4.3)
     base64 (0.3.0)
     bcrypt_pbkdf (1.1.2)
@@ -217,9 +217,9 @@ GEM
     parser (3.3.11.1)
       ast (~> 2.4.1)
       racc
-    pdf-reader (1.4.1)
-      Ascii85 (~> 1.0.0)
-      afm (~> 0.2.1)
+    pdf-reader (2.15.1)
+      Ascii85 (>= 1.0, < 3.0, != 2.0.0)
+      afm (>= 0.2.1, < 2)
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
@@ -413,7 +413,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kamal
-  pdf-reader (~> 1.4)
+  pdf-reader (~> 2.15)
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.2)
