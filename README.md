@@ -1,24 +1,82 @@
-# README
+# 📄 Resume AI Analyzer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A one‑page web app that analyzes your resume (PDF/DOCX) using AI and gives you an ATS score, strengths, weaknesses and actionable suggestions/improvements. Built with **Rails 8**, **Hotwire**, and **OpenAI**.
 
-Things you may want to cover:
+No database, no sign‑up, no storage – just upload and get instant feedback.
 
-* Ruby version
+## ✨ Features
 
-* System dependencies
+- Upload a **PDF** or **DOCX** resume
+- **AI‑powered analysis** (OpenAI gpt-5-nano)
+- Returns:
+  - ATS score (0–100)
+  - Strengths & weaknesses
+  - Improvement suggestions
+- Results appear **without page reload** (Turbo Streams)
+- **No database** – everything processed in memory
+- UI with Tailwind CSS
 
-* Configuration
+## 🛠️ Tech Stack
 
-* Database creation
+- Ruby on Rails 8
+- Hotwire (Turbo Frames / Streams)
+- Tailwind CSS
+- OpenAI API (`ruby-openai`)
+- PDF & DOCX extraction (`pdf-reader`, `docx`)
 
-* Database initialization
+## 🚀 Getting Started
 
-* How to run the test suite
+### Prerequisites
 
-* Services (job queues, cache servers, search engines, etc.)
+- Ruby 3.3+
+- Rails 8
+- OpenAI API key ([Get one here](https://platform.openai.com/api-keys))
 
-* Deployment instructions
+### Installation
 
-* ...
+```bash
+git clone https://github.com/buildwithmonika/resume_analyzer.git
+cd resume-ai-analyzer
+bundle install
+```
+
+### Environment Variables
+
+Create a `.env` file in the root directory:
+
+```
+OPENAI_ACCESS_TOKEN=your_openai_api_key_here
+```
+
+### Run the App
+
+```bash
+bin/dev
+```
+
+Open http://localhost:3000 in your browser.
+
+---
+
+## 📖 How to Use
+
+1. Click the file input and select a PDF or DOCX resume.
+2. Click “Analyze”.
+3. Wait a few seconds – the AI analysis will appear below the form.
+4. Review your ATS score, strengths, weaknesses and suggestions.
+---
+
+## 📁 Project Structure (Key Files)
+
+```
+app/
+├── controllers/home_controller.rb
+├── views/home/
+│   ├── index.html.erb
+│   └── _result.html.erb
+├── services/resume_analyzer.rb
+config/routes.rb
+```
+
+No models, no migrations, no database.
+
