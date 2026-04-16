@@ -43,7 +43,7 @@ gem "thruster", require: false
 # gem "image_processing", "~> 1.2"
 
 gem 'pdf-reader', '~> 1.4'
-gem 'docx', '~> 0.2.07'
+gem 'docx', '~> 0.10.0'
 gem 'ruby-openai', '~> 7.1'
 
 group :development, :test do
