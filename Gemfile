@@ -42,7 +42,7 @@ gem "thruster", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem 'pdf-reader', '~> 1.4'
+gem 'pdf-reader', '~> 2.15'
 gem 'docx', '~> 0.2.07'
 gem 'ruby-openai', '~> 7.1'
 
